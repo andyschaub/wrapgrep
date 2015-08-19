@@ -1,0 +1,30 @@
+
+wrapgrep was written for portability and speed and has been tested under both
+the latest versions (as of 8/19/2015) of OS X and Ubuntu. Please see the README
+file for more application-specific information.
+
+As such, wrapgrep does not have the ability to climb an OS-specific directory
+structrure or to color/highlight the output of the pattern match results, as
+examples.
+
+However, potential future enhancements (which may or may not be OS-specific)
+include:
+
+(1) Walking the directory structure of a given OS rather than using scripts,
+batch files, and/or the command "find" wherever these tools are available.
+
+(2) Coloring and/or highlighting the output to distinguish the file name from the
+pattern match result as well as emphasize the exact part of a given symbol that
+matches the input pattern.
+
+(3) Supporting regular expressions instead of exact substring pattern matches
+and/or adding a case-insensitive option.
+
+My apologies for the lack of a make file. Under either OS X or Ubuntu, in a terminal, the command "cc wrapgrep.c -o wrapgrep" will produce a wrapgrep
+executable, although depending on how you have your PATH setup, you may need
+to run "./wrapgrep <...>" to access the executable file. Please see README
+or run "./wrapgrep --help" for more information.
+
+Original author/developer contact information:
+	Robert Andrew "Andy" Schaub
+	https://www.andyschaub.com/

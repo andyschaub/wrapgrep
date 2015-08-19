@@ -1,0 +1,35 @@
+
+wrapgrep searches a given file for an array of symbols expressed
+in a pattern as a string with symbols (e.g., words) separated
+by whitespace in it. It converts the file-to-be-searched into a
+list of symbols or words separated by whitespace (spaces, tabs,
+newlines, etc.), keeping track of which line each symbol or
+word is on. wrapgrep then compares the pattern array against
+the list of to-be-searched symbols using a substring matching
+algorithm and sends matches to stdout with the file name and
+actual symbols in the file with the line number in parentheses.
+
+Suppose you have a file named andy-audio.html with several
+instances of the pattern "Andy Audio Plumb II" in it, sometimes
+split across lines. If you enter this command in your terminal:
+
+$wrapgrep "Andy Audio Plumb II" andy-audio.html
+
+You might get an output like this:
+
+andy-audio.html: content="Andy (7) Audio (7) Plumb (7) II"> (7)
+andy-audio.html: <title>Andy (11) Audio (11) Plumb (11) II</title> (11)
+andy-audio.html: Andy (256) Audio (256) Plumb (257) II</h2> (257)
+
+This indicates that you have three matches to the pattern
+"Andy Audio Plumb II" one all on line 7, one all on line 11, and
+one on both lines 256 and 257. As you can see, some matches
+have additional non-whitespace characters associated with the
+pattern, such as "Andy" matching "<title>Andy". This helps to
+give you context so that the results are useful but not limited
+to a line-by-line search.
+
+Because wrapgrep can only search one file at a time, you would need
+to put it in a batch file or use the find command with the appropriate
+options.
+
